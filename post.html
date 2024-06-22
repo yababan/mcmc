@@ -1,98 +1,173 @@
 <html>
-    <head><title>Пост</title></head>
-    <body>
-        <div class="header">
-            <h2 align="center">Minecraft.Minecraft</h2>
-            <p align="center">Майнкрафт Форум</p>
-        </div>
-    <div class="container">
-            <p>Автор: <a href='profile_1.html'>Notch</a></p>
-            <h3 align="center">Заголовок</h3>
-            <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
-            <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
+<head>
+    <title>Пост</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            font-size: 1.2em;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        .container h3 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .container p {
+            line-height: 1.6;
+        }
+
+        .container a {
+            text-decoration: none;
+            color: #007bff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            background-color: #e9ecef;
+            transition: background-color 0.3s;
+        }
+
+        .container a:hover {
+            background-color: #ddd;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            width: 150px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0069d9;
+        }
+
+        hr {
+            background-color: #ddd;
+            border: 0;
+            height: 1px;
+            margin: 20px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .containerv {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        .containerv h3 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .containerv p {
+            line-height: 1.6;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Minecraft.Minecraft</h2>
+        <p>Майнкрафт Форум</p>
     </div>
-        
-        <button>
-            <a href="home.html">На Главную</a>
-        </button>
-        <hr>
-        <input type="text" id="author">
-        <input type="text" id="body">
-        <button id="button">
-            send
-        </button>
-        <hr>
-        <div id="comments"></div>
-        <hr>
-        <div><h6>© 2024 Minecraft.Minecraft.  Все права защищены.</h4></div>
-        <script>
-            let author = document.getElementById("author")
-            let body = document.getElementById("body")
-            let button = document.getElementById("button")
-            let comments = document.getElementById("comments")
+    <div class="container">
+        <p>Автор: <a href='profile_1.html'>Notch</a></p>
+        <h3>Заголовок</h3>
+        <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
+        <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
+    </div>
 
-            function enter() {
-                comments.innerHTML += `
+    <button>
+        <a href="home.html">На Главную</a>
+    </button>
+
+    <hr>
+
+    <input type="text" id="author" placeholder="Автор">
+    <input type="text" id="body" placeholder="Текст комментария">
+    <button id="button">Отправить</button>
+
+    <hr>
+
+    <div id="comments"></div>
+
+    <hr>
+
+    <div class="footer">
+        <h6>© 2024 Minecraft.Minecraft.  Все права защищены.</h6>
+    </div>
+
+    <script>
+        let author = document.getElementById("author");
+        let body = document.getElementById("body");
+        let button = document.getElementById("button");
+        let comments = document.getElementById("comments");
+
+        function enter() {
+            comments.innerHTML += `
                 <div class="containerv">
-                <h3>${author.value}</h3>
-                <p>${body.value}</p>
+                    <h3>${author.value}</h3>
+                    <p>${body.value}</p>
                 </div>`;
-                
-                author.value = ""
-                body.value = "";
-            }
 
-            button.onclick = enter;
-        </script>
-        <style>
-            .header {
-                background-color: #4CAF50;
-                color: white;
-                padding: 20px 0;
-                text-align: center;
-            }
-            .container {
-                background-color: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 5px rgba(91, 91, 91, 0);
-                width: 70%;
-            
-            }
-            .containerv {
-                width: 50%;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: rgb(157, 157, 157);
-                border: 1px solid rgb(110, 110, 110);
-                border-radius: 5px;
-                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            }
-            body{
-                background: rgb(192, 216, 190);
-                margin: 0;
-            }
-            hr{
-                background-color:rgb(1, 90, 41);
-            }
-            p{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            h6{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            h4{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            h3{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            button{
-                background-color: rgb(157, 175, 155);
-            }
-            input{
-                background-color: rgb(157, 175, 155);
-            }
-        </style>
-    </body>
+            author.value = "";
+            body.value = "";
+        }
+
+        button.onclick = enter;
+    </script>
+</body>
 </html>
