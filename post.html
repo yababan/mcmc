@@ -1,5 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Пост</title>
     <style>
         body {
@@ -25,7 +29,8 @@
             font-size: 1.2em;
         }
 
-        .container {
+        .container,
+        .containerv {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -34,12 +39,14 @@
             margin: 20px auto;
         }
 
-        .container h3 {
+        .container h3,
+        .containerv h3 {
             margin-bottom: 10px;
             color: #007bff;
         }
 
-        .container p {
+        .container p,
+        .containerv p {
             line-height: 1.6;
         }
 
@@ -91,24 +98,6 @@
             margin-bottom: 10px;
         }
 
-        .containerv {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 70%;
-            margin: 20px auto;
-        }
-
-        .containerv h3 {
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-
-        .containerv p {
-            line-height: 1.6;
-        }
-
         .footer {
             background-color: #333;
             color: white;
@@ -116,22 +105,52 @@
             text-align: center;
             width: 100%;
         }
+
+        @media (max-width: 768px) {
+            .container,
+            .containerv {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .header h2 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+            }
+
+            input {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <h2>Minecraft.Minecraft</h2>
         <p>Майнкрафт Форум</p>
     </div>
+
     <div class="container">
         <p>Автор: <a href='profile_1.html'>Notch</a></p>
         <h3>Заголовок</h3>
         <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
         <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
     </div>
+
     <button>
-        <a href="index.html">На Главную</a>
+        <a href="index.html" style="color: white; text-decoration: none;">На Главную</a>
     </button>
+
     <hr>
 
     <input type="text" id="author" placeholder="Автор">
@@ -145,7 +164,7 @@
     <hr>
 
     <div class="footer">
-        <h6>© 2024 Minecraft.Minecraft.  Все права защищены.</h6>
+        <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
     </div>
 
     <script>
@@ -156,11 +175,10 @@
 
         function enter() {
             comments.innerHTML += `
-                <div class="containerv">
-                    <h3>${author.value}</h3>
-                    <p>${body.value}</p>
-                </div>`;
-
+            <div class="containerv">
+                <h3>${author.value}</h3>
+                <p>${body.value}</p>
+            </div>`;
             author.value = "";
             body.value = "";
         }
@@ -168,4 +186,5 @@
         button.onclick = enter;
     </script>
 </body>
+
 </html>
