@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,6 @@
             justify-content: center;
             height: 100vh;
         }
-
         .header {
             background-color: #4CAF50;
             color: white;
@@ -25,11 +23,9 @@
             text-align: center;
             width: 100%;
         }
-
         .header h2 {
             margin: 0;
         }
-
         hr {
             width: 80%;
             background-color: rgb(1, 90, 41);
@@ -37,7 +33,6 @@
             height: 2px;
             margin: 20px 0;
         }
-
         .content {
             width: 80%;
             max-width: 600px;
@@ -46,17 +41,14 @@
             align-items: center;
             text-align: center;
         }
-
         .content h3 {
             text-align: center;
         }
-
         .content label {
             margin-top: 10px;
             text-align: left;
             width: 100%;
         }
-
         .content input[type="text"],
         .content textarea {
             width: 100%;
@@ -66,12 +58,10 @@
             border: none;
             border-radius: 5px;
         }
-
         .content textarea {
             height: 200px;
             resize: none;
         }
-
         .content button {
             background-color: rgb(157, 175, 155);
             border: none;
@@ -80,26 +70,17 @@
             cursor: pointer;
             border-radius: 5px;
         }
-
-        .content button a {
-            text-decoration: none;
-            color: black;
-        }
-
         .content button:hover {
             background-color: rgb(137, 155, 135);
         }
-
         .nav-button {
             margin-top: 20px;
             text-align: center;
         }
-
         .nav-button a {
             text-decoration: none;
             color: black;
         }
-
         .nav-button button {
             background-color: rgb(157, 175, 155);
             border: none;
@@ -107,31 +88,39 @@
             cursor: pointer;
             border-radius: 5px;
         }
-
         .nav-button button:hover {
             background-color: rgb(137, 155, 135);
         }
     </style>
 </head>
-
 <body>
     <div class="header">
         <h2>Minecraft.Minecraft</h2>
         <p>Майнкрафт Форум</p>
     </div>
-
     <div class="nav-button">
         <button><a href="index.html">Главная</a></button>
     </div>
-
     <div class="content">
         <h3>Новый Пост</h3>
-        <label for="title">Заголовок:</label>
-        <input type="text" id="title" name="title">
-        <label for="post">Сам Пост:</label>
-        <textarea id="post" name="post"></textarea>
-        <button><a href="home.html">Опубликовать</a></button>
+        <form id="postForm">
+            <label for="title">Заголовок:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="post">Сам Пост:</label>
+            <textarea id="post" name="post" required></textarea>
+            <button type="submit">Опубликовать</button>
+        </form>
     </div>
+    <script>
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const post = document.getElementById('post').value;
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.push({ title, post });
+            localStorage.setItem('posts', JSON.stringify(posts));
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
-
 </html>
