@@ -1,39 +1,10 @@
 <html>
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
-<body>
-    <div class="header">
-        <h2>Minecraft.Minecraft</h2>
-        <p>Майнкрафт Форум</p>
-    </div>
-
-
-    <div class="divisor">
-        <div class="menu">
-            <h3>Меню</h3>
-            <a href="https://discord.gg/xEVsMbcqSY"> Дискорд</a></li>
-            <p> </p>
-            <a href="#">Email</a>
-            <p> </p>
-            <a href="index.html"> Выйти</a>
-            <p> </p>
-            <a href="new_post.html"> Новая Пост</a>
-        </div>
-
-        <div class="content">
-            <h3>Заголовок</h3>
-            <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
-            <a href="post.html">Читать далее</a>
-        </div>
-    </div>
-
-    <div class="footer">
-        <h6>© 2024 Minecraft.Minecraft.  Все права защищены.</h6>
-    </div>
     <style>
-        button{
-            border: rgba(255, 235, 205, 0)
-        }
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -59,6 +30,7 @@
 
         .divisor {
             display: flex;
+            flex-direction: column;
             padding: 20px;
         }
 
@@ -67,8 +39,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 20%;
-            margin-right: 20px;
+            margin-bottom: 20px;
         }
 
         .menu h3 {
@@ -91,12 +62,8 @@
             padding: 8px 12px;
             border-radius: 4px;
             display: block;
-            background-color: white;
-            transition: background-color 0.3s;
-        }
-
-        .menu a {
             background-color: rgba(110, 110, 110, 0.253);
+            transition: background-color 0.3s;
         }
 
         .content {
@@ -104,7 +71,6 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(91, 91, 91, 0);
-            width: 70%;
         }
 
         .content h3 {
@@ -123,7 +89,6 @@
             background-color: rgba(110, 110, 110, 0.253);
         }
 
-
         .footer {
             background-color: #333;
             color: white;
@@ -131,8 +96,52 @@
             text-align: center;
             bottom: 0;
         }
+
+        @media (min-width: 600px) {
+            .divisor {
+                flex-direction: row;
+            }
+
+            .menu {
+                width: 20%;
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+
+            .content {
+                width: 70%;
+            }
+        }
     </style>
 </head>
 
+<body>
+    <div class="header">
+        <h2>Minecraft.Minecraft</h2>
+        <p>Майнкрафт Форум</p>
+    </div>
+
+    <div class="divisor">
+        <div class="menu">
+            <h3>Меню</h3>
+            <ul>
+                <li><a href="https://discord.gg/xEVsMbcqSY">Дискорд</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="index.html">Выйти</a></li>
+                <li><a href="new_post.html">Новая Пост</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h3>Заголовок</h3>
+            <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
+            <a href="post.html">Читать далее</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
+    </div>
 </body>
+
 </html>
