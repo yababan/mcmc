@@ -1,58 +1,134 @@
 <html>
-    <head>
-        <title>Новый Пост</title>
-    </head>
-    <body>
-        <div class="header">
-            <h2 align="center">Minecraft.Minecraft</h2>
-            <p align="center">Майнкрафт Форум</p>
-        </div>
-        <hr />
-        <p align="center"><button><a href="home.html">Главная</a></button></p>
-        <h3 align="center">Новый Пост</h3> 
-        <P align="center">Заголовок:</P>
-        
-        <p align="center">
-            <input type="text">
-        </p>
-        <P align="center">Сам Пост:</P>
-        <p align="center">
-            <input type="text" class="npt">
-        </p>
-        <p align="end">
-            <button>
-                <a href="home.html">Опубликовать</a>
-            </button>
-        </p>
-        <style>
-            .npt{
-                width: 300px;
-                height: 200px;
-            }
-            body{
-                background: rgb(192, 216, 190);
-            }
-            hr{
-                background-color:rgb(1, 90, 41);
-            }
-            p{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            h6{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            h4{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            h3{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            button{
-                background-color: rgb(157, 175, 155);
-            }
-            input{
-                background-color: rgb(157, 175, 155);
-            }
-        </style>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый Пост</title>
+    <style>
+        body {
+            background: rgb(192, 216, 190);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        hr {
+            width: 80%;
+            background-color: rgb(1, 90, 41);
+            border: none;
+            height: 2px;
+            margin: 20px 0;
+        }
+
+        .content {
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content h3 {
+            text-align: center;
+        }
+
+        .content label {
+            margin-top: 10px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .content input[type="text"],
+        .content textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: rgb(157, 175, 155);
+            border: none;
+            border-radius: 5px;
+        }
+
+        .content textarea {
+            height: 200px;
+            resize: none;
+        }
+
+        .content button {
+            background-color: rgb(157, 175, 155);
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .content button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .content button:hover {
+            background-color: rgb(137, 155, 135);
+        }
+
+        .nav-button {
+            margin-top: 20px;
+        }
+
+        .nav-button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav-button button {
+            background-color: rgb(157, 175, 155);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .nav-button button:hover {
+            background-color: rgb(137, 155, 135);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Minecraft.Minecraft</h2>
+        <p>Майнкрафт Форум</p>
+    </div>
+
+    <hr />
+
+    <div class="nav-button">
+        <button><a href="home.html">Главная</a></button>
+    </div>
+
+    <div class="content">
+        <h3>Новый Пост</h3>
+
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title">
+
+        <label for="post">Сам Пост:</label>
+        <textarea id="post" name="post"></textarea>
+
+        <button><a href="home.html">Опубликовать</a></button>
+    </div>
+</body>
+
 </html>
