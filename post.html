@@ -169,6 +169,7 @@
         let author = document.getElementById("author");
         let body = document.getElementById("body");
         let button = document.getElementById("button");
+        let commentsDiv = document.getelementById("comments");
         let comments = document.getElementById("comments");
 
         function enter() {
@@ -180,6 +181,10 @@
             author.value = "";
             body.value = "";
         }
+        commentsDiv.innerHTML = comments;
+        author.value = "";
+        body.value = "";
+        localStorage.setItem("comments", comments);
 
         button.onclick = enter;
     </script>
