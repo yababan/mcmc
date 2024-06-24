@@ -133,43 +133,30 @@
         <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
     </div>
     <script>
-        let author = document.getElementById("author");
-        let body = document.getElementById("body");
-        let button = document.getElementById("button");
-        let commentsDiv = document.getElementById("comments");
-
-        // Load comments from localStorage
-        function loadComments() {
-            let comments = JSON.parse(localStorage.getItem("comments")) || [];
-            commentsDiv.innerHTML = '';
-            comments.forEach(comment => {
-                commentsDiv.innerHTML += `
-                    <div class="containerv">
-                        <h3>${comment.author}</h3>
-                        <p>${comment.body}</p>
-                    </div>`;
-            });
-        }
-
-        // Save comments to localStorage
-        function saveComments(comments) {
-            localStorage.setItem("comments", JSON.stringify(comments));
-        }
-
-        // Add new comment
-        function enter() {
-            let comments = JSON.parse(localStorage.getItem("comments")) || [];
-            comments.push({ author: author.value, body: body.value });
-            saveComments(comments);
-            loadComments();
-            author.value = "";
-            body.value = "";
-        }
-
-        // Load comments when the page is loaded
-        window.onload = loadComments;
-
-        button.onclick = enter;
+    author ("author");
+    
+    body = ("body");
+    
+    button = ("button");
+    commentsDiv = ("comments");
+    
+    comments = ("comments")
+    .innerHTML = comments;
+    
+    function QO) {
+    comments += ~
+    <div>
+    <h3>${ .Value}</h3>
+    
+    <p>${ .value}</p>
+    </div>
+    .innerHTML = comments;
+    -value = "":
+    .value = "";
+    
+    ("comments", comments) ;
+    }
+    .onclick = enter;
     </script>
 </body>
 </html>
