@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <title>Пост</title>
     <style>
@@ -10,25 +9,20 @@
             background-color: #f0f0f0;
             color: #333;
         }
-
         .header {
             background-color: #4CAF50;
             color: white;
             padding: 20px 0;
             text-align: center;
         }
-
         .header h2 {
             margin: 0;
             font-size: 2.5em;
         }
-
         .header p {
             font-size: 1.2em;
         }
-
-        .container,
-        .containerv {
+        .container, .containerv {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -36,18 +30,13 @@
             width: 70%;
             margin: 20px auto;
         }
-
-        .container h3,
-        .containerv h3 {
+        .container h3, .containerv h3 {
             margin-bottom: 10px;
             color: #007bff;
         }
-
-        .container p,
-        .containerv p {
+        .container p, .containerv p {
             line-height: 1.6;
         }
-
         .container a {
             text-decoration: none;
             color: #007bff;
@@ -56,11 +45,9 @@
             background-color: #e9ecef;
             transition: background-color 0.3s;
         }
-
         .container a:hover {
             background-color: #ddd;
         }
-
         button {
             background-color: #007bff;
             color: white;
@@ -74,18 +61,15 @@
             text-align: center;
             transition: background-color 0.3s;
         }
-
         button:hover {
             background-color: #0069d9;
         }
-
         hr {
             background-color: #ddd;
             border: 0;
             height: 1px;
             margin: 20px 0;
         }
-
         input {
             width: 100%;
             padding: 12px;
@@ -95,7 +79,6 @@
             font-size: 16px;
             margin-bottom: 10px;
         }
-
         .footer {
             background-color: #333;
             color: white;
@@ -103,27 +86,21 @@
             text-align: center;
             width: 100%;
         }
-
         @media (max-width: 768px) {
-            .container,
-            .containerv {
+            .container, .containerv {
                 width: 90%;
                 padding: 15px;
             }
-
             .header h2 {
                 font-size: 2em;
             }
-
             .header p {
                 font-size: 1em;
             }
-
             button {
                 width: 100%;
                 padding: 10px;
             }
-
             input {
                 font-size: 14px;
                 padding: 10px;
@@ -131,63 +108,68 @@
         }
     </style>
 </head>
-
 <body>
     <div class="header">
         <h2>Minecraft.Minecraft</h2>
         <p>Майнкрафт Форум</p>
     </div>
-
     <div class="container">
         <p>Автор: <a href='profile_1.html'>Notch</a></p>
         <h3>Заголовок</h3>
         <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
         <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
     </div>
-
     <button>
         <a href="index.html" style="color: white; text-decoration: none;">На Главную</a>
     </button>
-
     <hr>
-
     <input type="text" id="author" placeholder="Автор">
     <input type="text" id="body" placeholder="Текст комментария">
     <button id="button">Отправить</button>
-
     <hr>
-
     <div id="comments"></div>
-
     <hr>
-
     <div class="footer">
         <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
     </div>
-
     <script>
         let author = document.getElementById("author");
         let body = document.getElementById("body");
         let button = document.getElementById("button");
-        let commentsDiv = document.getelementById("comments");
-        let comments = document.getElementById("comments");
+        let commentsDiv = document.getElementById("comments");
 
+        // Load comments from localStorage
+        function loadComments() {
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            commentsDiv.innerHTML = '';
+            comments.forEach(comment => {
+                commentsDiv.innerHTML += `
+                    <div class="containerv">
+                        <h3>${comment.author}</h3>
+                        <p>${comment.body}</p>
+                    </div>`;
+            });
+        }
+
+        // Save comments to localStorage
+        function saveComments(comments) {
+            localStorage.setItem("comments", JSON.stringify(comments));
+        }
+
+        // Add new comment
         function enter() {
-            comments.innerHTML += `
-            <div class="containerv">
-                <h3>${author.value}</h3>
-                <p>${body.value}</p>
-            </div>`;
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.push({ author: author.value, body: body.value });
+            saveComments(comments);
+            loadComments();
             author.value = "";
             body.value = "";
         }
-        commentsDiv.innerHTML = comments;
-        author.value = "";
-        body.value = "";
-        localStorage.setItem("comments", comments);
+
+        // Load comments when the page is loaded
+        window.onload = loadComments;
 
         button.onclick = enter;
     </script>
 </body>
-
 </html>
