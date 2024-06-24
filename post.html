@@ -133,28 +133,28 @@
         <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
     </div>
     <script>
-    author ("author");
-    
-    body = ("body");
-    
+    let author = document.getElementbyId("author");
+    let body = document.getElementbyId("body");
+    let commentsDiv = document.getElementbyId("comments");
+    let comments = localStorage.getItem("comments") || "";
+    commentsDiv.innerHTML = comments;
     button = ("button");
     commentsDiv = ("comments");
     
     comments = ("comments")
     .innerHTML = comments;
     
-    function QO) {
-    comments += ~
-    <div>
-    <h3>${ .Value}</h3>
-    
-    <p>${ .value}</p>
-    </div>
-    .innerHTML = comments;
-    -value = "":
-    .value = "";
-    
-    ("comments", comments) ;
+    function enter() {
+        comments += `
+        <div>
+        <h3>${author.Value}</h3>
+        <p>${body.Value}</p>
+        </div>
+        `;
+        commentsDiv.innerHTML = comments;
+        author.value = "";
+        body.value = "";
+        localStorage.setItem("comments", comments);
     }
     .onclick = enter;
     </script>
