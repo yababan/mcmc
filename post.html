@@ -1,5 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
     <title>Пост</title>
     <style>
         body {
@@ -8,24 +10,20 @@
             background-color: #f0f0f0;
             color: #333;
         }
-
         .header {
             background-color: #4CAF50;
             color: white;
             padding: 20px 0;
             text-align: center;
         }
-
         .header h2 {
             margin: 0;
             font-size: 2.5em;
         }
-
         .header p {
             font-size: 1.2em;
         }
-
-        .container {
+        .container, .containerv {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -33,16 +31,13 @@
             width: 70%;
             margin: 20px auto;
         }
-
-        .container h3 {
+        .container h3, .containerv h3 {
             margin-bottom: 10px;
             color: #007bff;
         }
-
-        .container p {
+        .container p, .containerv p {
             line-height: 1.6;
         }
-
         .container a {
             text-decoration: none;
             color: #007bff;
@@ -51,11 +46,9 @@
             background-color: #e9ecef;
             transition: background-color 0.3s;
         }
-
         .container a:hover {
             background-color: #ddd;
         }
-
         button {
             background-color: #007bff;
             color: white;
@@ -69,18 +62,15 @@
             text-align: center;
             transition: background-color 0.3s;
         }
-
         button:hover {
             background-color: #0069d9;
         }
-
         hr {
             background-color: #ddd;
             border: 0;
             height: 1px;
             margin: 20px 0;
         }
-
         input {
             width: 100%;
             padding: 12px;
@@ -90,25 +80,6 @@
             font-size: 16px;
             margin-bottom: 10px;
         }
-
-        .containerv {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 70%;
-            margin: 20px auto;
-        }
-
-        .containerv h3 {
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-
-        .containerv p {
-            line-height: 1.6;
-        }
-
         .footer {
             background-color: #333;
             color: white;
@@ -133,39 +104,57 @@
         <a href="index.html">На Главную</a>
     </button>
     <hr>
-
     <input type="text" id="author" placeholder="Автор">
     <input type="text" id="body" placeholder="Текст комментария">
     <button id="button">Отправить</button>
-
     <hr>
-
     <div id="comments"></div>
-
     <hr>
-
     <div class="footer">
-        <h6>© 2024 Minecraft.Minecraft.  Все права защищены.</h6>
+        <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
     </div>
-
     <script>
         let author = document.getElementById("author");
         let body = document.getElementById("body");
         let button = document.getElementById("button");
         let comments = document.getElementById("comments");
 
-        function enter() {
-            comments.innerHTML += `
+        function loadComments() {
+            let savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+            savedComments.forEach(comment => {
+                comments.innerHTML += `
                 <div class="containerv">
-                    <h3>${author.value}</h3>
-                    <p>${body.value}</p>
+                    <h3>${comment.author}</h3>
+                    <p>${comment.body}</p>
                 </div>`;
+            });
+        }
+
+        function saveComment(author, body) {
+            let savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+            savedComments.push({author, body});
+            localStorage.setItem("comments", JSON.stringify(savedComments));
+        }
+
+        function enter() {
+            let authorValue = author.value;
+            let bodyValue = body.value;
+
+            comments.innerHTML += `
+            <div class="containerv">
+                <h3>${authorValue}</h3>
+                <p>${bodyValue}</p>
+            </div>`;
+
+            saveComment(authorValue, bodyValue);
 
             author.value = "";
             body.value = "";
         }
 
         button.onclick = enter;
+
+        window.onload = loadComments;
     </script>
 </body>
 </html>
