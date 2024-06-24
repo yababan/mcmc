@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -10,8 +11,11 @@
             margin: 0;
             background-color: #f0f0f0;
             color: #333;
+            display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         .header {
@@ -19,6 +23,7 @@
             color: white;
             padding: 20px 0;
             text-align: center;
+            width: 100%;
         }
 
         .header h2 {
@@ -39,6 +44,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
 
         .content h3 {
@@ -86,6 +92,7 @@
 
         .nav-button {
             margin-top: 20px;
+            text-align: center;
         }
 
         .nav-button a {
@@ -113,20 +120,16 @@
         <p>Майнкрафт Форум</p>
     </div>
 
-
     <div class="nav-button">
         <button><a href="home.html">Главная</a></button>
     </div>
 
     <div class="content">
         <h3>Новый Пост</h3>
-
         <label for="title">Заголовок:</label>
         <input type="text" id="title" name="title">
-
         <label for="post">Сам Пост:</label>
         <textarea id="post" name="post"></textarea>
-
         <button><a href="home.html">Опубликовать</a></button>
     </div>
 </body>
