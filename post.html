@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
     <title>Пост</title>
     <style>
@@ -63,7 +62,8 @@
             background-color: #ddd;
         }
 
-        button {
+        .button-link {
+            display: block;
             background-color: #007bff;
             color: white;
             padding: 12px 20px;
@@ -71,13 +71,13 @@
             border-radius: 4px;
             cursor: pointer;
             margin: 20px auto;
-            display: block;
-            width: 150px;
             text-align: center;
             transition: background-color 0.3s;
+            text-decoration: none;
+            width: 150px;
         }
 
-        button:hover {
+        .button-link:hover {
             background-color: #0069d9;
         }
 
@@ -120,7 +120,7 @@
                 font-size: 1em;
             }
 
-            button {
+            .button-link {
                 width: 100%;
                 padding: 10px;
             }
@@ -145,7 +145,7 @@
                 font-size: 0.9em;
             }
 
-            button {
+            .button-link {
                 width: 100%;
                 padding: 10px;
             }
@@ -170,7 +170,7 @@
                 padding: 10px;
             }
 
-            button {
+            .button-link {
                 width: 100%;
                 padding: 8px;
             }
@@ -195,9 +195,7 @@
         <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
     </div>
 
-    <button>
-        <a href="index.html" style="color: white; text-decoration: none;">На Главную</a>
-    </button>
+    <a href="index.html" class="button-link">На Главную</a>
 
     <hr>
 
@@ -225,10 +223,10 @@
 
         function enter() {
             comments += `
-            <div>
-                <h3>${author.value}</h3>
-                <p>${body.value}</p>
-            </div>
+                <div>
+                    <h3>${author.value}</h3>
+                    <p>${body.value}</p>
+                </div>
             `;
             commentsDiv.innerHTML = comments;
             author.value = "";
