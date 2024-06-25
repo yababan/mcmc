@@ -21,10 +21,18 @@ body {
 }
 
 .header {
-    background-color: #4CAF50;
+    background: linear-gradient(45deg, #4CAF50, #333, #f0f0f0);
     color: white;
     padding: 20px 0;
     text-align: center;
+    background-size: 400% 400%;
+    animation: headerGradientAnimation 15s ease infinite;
+}
+
+@keyframes headerGradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .header h2 {
@@ -109,13 +117,11 @@ body {
     .divisor {
         flex-direction: row;
     }
-
     .menu {
         width: 20%;
         margin-right: 20px;
         margin-bottom: 0;
     }
-
     .content {
         width: 70%;
     }
