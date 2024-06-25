@@ -96,12 +96,12 @@ hr {
 }
 
 input {
-    width: 100%;
-    padding: 12px;
+    width: 50%; 
+    padding: 10px; 
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 14px; 
     margin-bottom: 10px;
 }
 
@@ -119,6 +119,7 @@ input {
     border-radius: 8px;
     margin: 10px 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .comments h3 {
@@ -151,60 +152,10 @@ input {
     }
 
     input {
-        font-size: 14px;
+        font-size: 10px;
         padding: 10px;
     }
-}
-
-@media (max-width: 600px) {
-    .container, .containerv {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .header h2 {
-        font-size: 1.8em;
-    }
-
-    .header p {
-        font-size: 0.9em;
-    }
-
-    .button-link {
-        width: 100%;
-        padding: 10px;
-    }
-
-    input {
-        font-size: 14px;
-        padding: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header h2 {
-        font-size: 1.5em;
-    }
-
-    .header p {
-        font-size: 0.9em;
-    }
-
-    .container, .containerv {
-        width: 95%;
-        padding: 10px;
-    }
-
-    .button-link {
-        width: 100%;
-        padding: 8px;
-    }
-
-    input {
-        font-size: 12px;
-        padding: 8px;
-    }
-}
+} 
 </style>
 </head>
 <body>
@@ -223,11 +174,11 @@ input {
 <a href="index.html" class="button-link">На Главную</a>
 
 <hr>
-
-<input type="text" id="author" placeholder="Автор">
-<input type="text" id="body" placeholder="Текст комментария">
-<button id="button" class="button-link">Отправить</button>
-
+<p align="center">
+    <input type="text" id="author" placeholder="Автор">
+    <input type="text" id="body" placeholder="Текст комментария">
+    <button id="button" class="button-link">Отправить</button>
+</p>
 <hr>
 
 <div id="comments"></div>
@@ -239,26 +190,26 @@ input {
 </div>
 
 <script>
-let author = document.getElementById("author");
-let body = document.getElementById("body");
-let commentsDiv = document.getElementById("comments");
-let comments = localStorage.getItem("comments") || "";
-commentsDiv.innerHTML = comments;
-
-function enter() {
-    comments += `
-    <div class="comments">
-        <h3>${author.value}</h3>
-        <p>${body.value}</p>
-    </div>
-    `;
+    let author = document.getElementById("author");
+    let body = document.getElementById("body");
+    let commentsDiv = document.getElementById("comments");
+    let comments = localStorage.getItem("comments") || "";
     commentsDiv.innerHTML = comments;
-    author.value = "";
-    body.value = "";
-    localStorage.setItem("comments", comments);
-}
 
-document.getElementById("button").onclick = enter;
+    function enter() {
+        comments += `
+        <div class="comments">
+            <h3>${author.value}</h3>
+            <p>${body.value}</p>
+        </div>
+        `;
+        commentsDiv.innerHTML = comments;
+        author.value = "";
+        body.value = "";
+        localStorage.setItem("comments", comments);
+    }
+
+    document.getElementById("button").onclick = enter;
 </script>
 </body>
 </html>
