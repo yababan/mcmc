@@ -1,248 +1,267 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пост</title>
-    <style>
-        .divisor {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
-        body{
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-        }
-        .header {
-            background: linear-gradient(to bottom right, blue, pink);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            background-size: 400% 400%;
-            animation: headerGradientAnimation 15s ease infinite;
-            margin: 0;
-        }
-    
-        @keyframes headerGradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пост</title>
+<style>
+.divisor {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
 
-        .header h2 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
 
-        .header p {
-            font-size: 1.2em;
-        }
+.header {
+    background: linear-gradient(to bottom right, blue, pink);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    background-size: 400% 400%;
+    animation: headerGradientAnimation 15s ease infinite;
+    margin: 0;
+}
 
-        .container, .containerv {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 70%;
-            margin: 20px auto;
-        }
+@keyframes headerGradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        .container h3, .containerv h3 {
-            margin-bottom: 10px;
-            color: #007bff;
-        }
+.header h2 {
+    margin: 0;
+    font-size: 2.5em;
+}
 
-        .container p, .containerv p {
-            line-height: 1.6;
-        }
+.header p {
+    font-size: 1.2em;
+}
 
-        .container a {
-            text-decoration: none;
-            color: #007bff;
-            padding: 8px 12px;
-            border-radius: 4px;
-            background-color: #e9ecef;
-            transition: background-color 0.3s;
-        }
+.container, .containerv {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    margin: 20px auto;
+}
 
-        .container a:hover {
-            background-color: #ddd;
-        }
+.container h3, .containerv h3 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
 
-        .button-link {
-            display: block;
-            background-color: #007bff;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 20px auto;
-            text-align: center;
-            transition: background-color 0.3s;
-            text-decoration: none;
-            width: 150px;
-        }
+.container p, .containerv p {
+    line-height: 1.6;
+}
 
-        .button-link:hover {
-            background-color: #0069d9;
-        }
+.container a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #e9ecef;
+    transition: background-color 0.3s;
+}
 
-        hr {
-            background-color: #ddd;
-            border: 0;
-            height: 1px;
-            margin: 20px 0;
-        }
+.container a:hover {
+    background-color: #ddd;
+}
 
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
+.button-link {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 20px auto;
+    text-align: center;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    width: 150px;
+}
 
-        .footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            width: 100%;
-        }
+.button-link:hover {
+    background-color: #0069d9;
+}
 
-        @media (max-width: 768px) {
-            .container, .containerv {
-                width: 90%;
-                padding: 15px;
-            }
+hr {
+    background-color: #ddd;
+    border: 0;
+    height: 1px;
+    margin: 20px 0;
+}
 
-            .header h2 {
-                font-size: 2em;
-            }
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
 
-            .header p {
-                font-size: 1em;
-            }
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
 
-            .button-link {
-                width: 100%;
-                padding: 10px;
-            }
+.comments {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 
-            input {
-                font-size: 14px;
-                padding: 10px;
-            }
-        }
+.comments h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
 
-        @media (max-width: 600px) {
-            .container, .containerv {
-                width: 90%;
-                padding: 15px;
-            }
+.comments p {
+    margin: 0;
+    color: #555;
+}
 
-            .header h2 {
-                font-size: 1.8em;
-            }
+@media (max-width: 768px) {
+    .container, .containerv {
+        width: 90%;
+        padding: 15px;
+    }
 
-            .header p {
-                font-size: 0.9em;
-            }
+    .header h2 {
+        font-size: 2em;
+    }
 
-            .button-link {
-                width: 100%;
-                padding: 10px;
-            }
+    .header p {
+        font-size: 1em;
+    }
 
-            input {
-                font-size: 14px;
-                padding: 10px;
-            }
-        }
+    .button-link {
+        width: 100%;
+        padding: 10px;
+    }
 
-        @media (max-width: 480px) {
-            .header h2 {
-                font-size: 1.5em;
-            }
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
 
-            .header p {
-                font-size: 0.9em;
-            }
+@media (max-width: 600px) {
+    .container, .containerv {
+        width: 90%;
+        padding: 15px;
+    }
 
-            .container, .containerv {
-                width: 95%;
-                padding: 10px;
-            }
+    .header h2 {
+        font-size: 1.8em;
+    }
 
-            .button-link {
-                width: 100%;
-                padding: 8px;
-            }
+    .header p {
+        font-size: 0.9em;
+    }
 
-            input {
-                font-size: 12px;
-                padding: 8px;
-            }
-        }
-    </style>
+    .button-link {
+        width: 100%;
+        padding: 10px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h2 {
+        font-size: 1.5em;
+    }
+
+    .header p {
+        font-size: 0.9em;
+    }
+
+    .container, .containerv {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .button-link {
+        width: 100%;
+        padding: 8px;
+    }
+
+    input {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+</style>
 </head>
 <body>
-    <div class="header">
-        <h2>Minecraft.Minecraft</h2>
-        <p>Майнкрафт Форум</p>
+<div class="header">
+    <h2>Minecraft.Minecraft</h2>
+    <p>Майнкрафт Форум</p>
+</div>
+
+<div class="container">
+    <p>Автор: <a href='profile_1.html'>Notch</a></p>
+    <h3>Заголовок</h3>
+    <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
+    <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
+</div>
+
+<a href="index.html" class="button-link">На Главную</a>
+
+<hr>
+
+<input type="text" id="author" placeholder="Автор">
+<input type="text" id="body" placeholder="Текст комментария">
+<button id="button" class="button-link">Отправить</button>
+
+<hr>
+
+<div id="comments"></div>
+
+<hr>
+
+<div class="footer">
+    <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
+</div>
+
+<script>
+let author = document.getElementById("author");
+let body = document.getElementById("body");
+let commentsDiv = document.getElementById("comments");
+let comments = localStorage.getItem("comments") || "";
+commentsDiv.innerHTML = comments;
+
+function enter() {
+    comments += `
+    <div class="comments">
+        <h3>${author.value}</h3>
+        <p>${body.value}</p>
     </div>
+    `;
+    commentsDiv.innerHTML = comments;
+    author.value = "";
+    body.value = "";
+    localStorage.setItem("comments", comments);
+}
 
-    <div class="container">
-        <p>Автор: <a href='profile_1.html'>Notch</a></p>
-        <h3>Заголовок</h3>
-        <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
-        <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
-    </div>
-
-    <a href="index.html" class="button-link">На Главную</a>
-
-    <hr>
-
-    <input type="text" id="author" placeholder="Автор">
-    <input type="text" id="body" placeholder="Текст комментария">
-    <button id="button">Отправить</button>
-
-    <hr>
-
-    <div id="comments"></div>
-
-    <hr>
-
-    <div class="footer">
-        <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
-    </div>
-
-    <script>
-        let author = document.getElementById("author");
-        let body = document.getElementById("body");
-        let commentsDiv = document.getElementById("comments");
-
-        let comments = localStorage.getItem("comments") || "";
-        commentsDiv.innerHTML = comments;
-
-        function enter() {
-            comments += `
-                <div>
-                    <h3>${author.value}</h3>
-                    <p>${body.value}</p>
-                </div>
-            `;
-            commentsDiv.innerHTML = comments;
-            author.value = "";
-            body.value = "";
-            localStorage.setItem("comments", comments);
-        }
-
-        document.getElementById("button").onclick = enter;
-    </script>
+document.getElementById("button").onclick = enter;
+</script>
 </body>
 </html>
