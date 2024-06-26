@@ -239,19 +239,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            const postsContainer = document.getElementById('posts');
+            fetch('/videos')
+                .then(response => response.json())
+                .then(data => {
+                    const videoContainer = document.getElementById('videoContainer');
+                    data.videos.forEach(video => {
+                        const videoElement = document.createElement('video');
+                        videoElement.src = video.file_path;
+                        videoElement.controls = true;
+                        videoContainer.appendChild(videoElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
 
-            posts.forEach(post => {
-                const postElement = document.createElement('div');
-                postElement.innerHTML = `
-                    <hr>
-                    <h3>${post.title}</h3>
-                    <p>${post.post}</p>
-                    <video controls><source src=${post.video} type="video/mp4" class="video"></video>
-                `;
-                postsContainer.appendChild(postElement);
-            });
 
             const emailLink = document.getElementById('email-link');
             if (emailLink) {
