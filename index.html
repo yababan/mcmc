@@ -238,24 +238,21 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('/videos')
-                .then(response => response.json())
-                .then(data => {
-                    const videoContainer = document.getElementById('videoContainer');
-                    data.videos.forEach(video => {
-                        const videoElement = document.createElement('video');
-                        videoElement.src = video.file_path;
-                        videoElement.controls = true;
-                        videoContainer.appendChild(videoElement);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
-
-
+        let title = document.getElementById("title");
+        let body = document.getElementById("body");
+        let button = document.getElementById("button"); 
+        let comments = document.getElementById("comments");
+        function enter() {
+            comments.innerHTML += `
+            <div>
+            <h3>${title.value}</h3>
+            <p>${body.value}</p>
+            </div>
+            `;
+            author.value = "";
+            body.value = "";
+        }
+        button.onclick = enter;
             const emailLink = document.getElementById('email-link');
             if (emailLink) {
                 emailLink.addEventListener('click', function(event) {
