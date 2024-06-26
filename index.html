@@ -238,9 +238,10 @@
     </div>
 
     <script>
-         document.addEventListener('DOMContentLoaded', function() {
-         const postsContainer = document.getElementById('posts');
-         let posts = JSON.parse(localStorage.getItem('posts')) || [];
+        document.addEventListener('DOMContentLoaded', function() {
+            const postsContainer = document.getElementById('posts');
+
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
 
             posts.forEach(post => {
                 const postElement = document.createElement('div');
@@ -250,14 +251,6 @@
                 `;
                 postsContainer.appendChild(postElement);
             });
-
-            const emailLink = document.getElementById('email-link');
-            if (emailLink) {
-                emailLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    alert('dimanargaz@icloud.com');
-                });
-            }
         });
 </body>
 </html>
