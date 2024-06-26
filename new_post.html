@@ -120,7 +120,7 @@
         <form id="postForm">
             <input type="text" id="title" placeholder="Название" required>
             <textarea id="post" placeholder="Описание" required></textarea>
-            <input type="file" id="videoFile" accept="video/*">
+            <input type="file" id="video" required>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -138,7 +138,7 @@
                 posts.push({
                     title: title,
                     post: post,
-                    videoFile: fileData
+                    video: fileData
                 });
                 localStorage.setItem('posts', JSON.stringify(posts));
                 window.location.href = 'index.html';
@@ -150,7 +150,7 @@
                 posts.push({
                     title: title,
                     post: post,
-                    videoFile: fileData
+                    video: null
                 });
                 localStorage.setItem('posts', JSON.stringify(posts));
                 window.location.href = 'index.html';
