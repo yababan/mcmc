@@ -236,21 +236,19 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            
                 const postsContainer = document.getElementById('posts');
             
                 posts.forEach(post => {
                     const postElement = document.createElement('div');
-            
                     postElement.innerHTML = `
                         <hr>
                         <h3>${post.title}</h3>
-                        ${post.fileData ? `<video controls><source src="${post.fileData}" class="video"></video>` : ''}
                         <p>${post.post}</p>
+                        ${post.video ? `<video controls src="${post.video}" width="320" height="240"></video>` : ''}
                     `;
-            
                     postsContainer.appendChild(postElement);
                 });
+            });
             
                 const emailLink = document.getElementById('email-link');
             
