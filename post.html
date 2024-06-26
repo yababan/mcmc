@@ -1,218 +1,239 @@
 <html>
+
 <head>
-<title>Пост</title>
-<style>
-.divisor {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
+    <title>Пост</title>
+    <style>
+        .divisor {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
 
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-}
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
 
-.header {
-    background: linear-gradient(to bottom right, blue, pink);
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    background-size: 400% 400%;
-    animation: headerGradientAnimation 15s ease infinite;
-    margin: 0;
-}
+        .header {
+            background: linear-gradient(to bottom right, blue, pink);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            background-size: 400% 400%;
+            animation: headerGradientAnimation 15s ease infinite;
+            margin: 0;
+        }
 
-@keyframes headerGradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+        @keyframes headerGradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
 
-.header h2 {
-    margin: 0;
-    font-size: 2.5em;
-}
+            50% {
+                background-position: 100% 50%;
+            }
 
-.header p {
-    font-size: 1.2em;
-}
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-.container, .containerv {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 70%;
-    margin: 20px auto;
-}
+        .header h2 {
+            margin: 0;
+            font-size: 2.5em;
+        }
 
-.container h3, .containerv h3 {
-    margin-bottom: 10px;
-    color: #007bff;
-}
+        .header p {
+            font-size: 1.2em;
+        }
 
-.container p, .containerv p {
-    line-height: 1.6;
-}
+        .container,
+        .containerv {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
 
-.container a {
-    text-decoration: none;
-    color: #007bff;
-    padding: 8px 12px;
-    border-radius: 4px;
-    background-color: #e9ecef;
-    transition: background-color 0.3s;
-}
+        .container h3,
+        .containerv h3 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
 
-.container a:hover {
-    background-color: #ddd;
-}
+        .container p,
+        .containerv p {
+            line-height: 1.6;
+        }
 
-.button-link {
-    display: block;
-    background-color: #007bff;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 20px auto;
-    text-align: center;
-    transition: background-color 0.3s;
-    text-decoration: none;
-    width: 150px;
-}
+        .container a {
+            text-decoration: none;
+            color: #007bff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            background-color: #e9ecef;
+            transition: background-color 0.3s;
+        }
 
-.button-link:hover {
-    background-color: #0069d9;
-}
+        .container a:hover {
+            background-color: #ddd;
+        }
 
-hr {
-    background-color: #ddd;
-    border: 0;
-    height: 1px;
-    margin: 20px 0;
-}
+        .button-link {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 20px auto;
+            text-align: center;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            width: 150px;
+        }
 
-input {
-    width: 50%; 
-    padding: 10px; 
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px; 
-    margin-bottom: 10px;
-}
+        .button-link:hover {
+            background-color: #0069d9;
+        }
 
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
-}
+        hr {
+            background-color: #ddd;
+            border: 0;
+            height: 1px;
+            margin: 20px 0;
+        }
 
-.comments {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 10px 0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+        input {
+            width: 90%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
 
-.comments h3 {
-    margin: 0 0 5px 0;
-    color: #333;
-}
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
 
-.comments p {
-    margin: 0;
-    color: #555;
-}
+        .comments {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
- @media (min-width: 600px) {
-    .divisor {
-        flex-direction: row;
-    }
-    .container, .containerv {
-        width: 90%;
-        padding: 15px;
-    }
+        .comments h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
 
-    .header h2 {
-        font-size: 2em;
-    }
+        .comments p {
+            margin: 0;
+            color: #555;
+        }
 
-    .header p {
-        font-size: 1em;
-    }
+        @media (min-width: 600px) {
+            .divisor {
+                flex-direction: row;
+            }
 
-    .button-link {
-        width: 50%;
-        padding: 10px;
-    }
+            .container,
+            .containerv {
+                width: 80%;
+                padding: 15px;
+            }
 
-    input {
-        font-size: 10px;
-        padding: 10px;
-    }
-} 
-</style>
+            .header h2 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .button-link {
+                width: 50%;
+                padding: 10px;
+            }
+
+            input {
+                font-size: 10px;
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="header">
-    <h2>Minecraft.Minecraft</h2>
-    <p>Майнкрафт Форум</p>
-</div>
+    <div class="header">
+        <h2>Minecraft.Minecraft</h2>
+        <p>Майнкрафт Форум</p>
+    </div>
 
-<div class="container">
-    <p>Автор: <a href='profile_1.html'>Notch</a></p>
-    <h3>Заголовок</h3>
-    <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
-    <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
-</div>
+    <div class="container">
+        <p>Автор: <a href='profile_1.html'>Notch</a></p>
+        <h3>Заголовок</h3>
+        <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
+        <p>Купить майнкрафт на <a href="https://minecraft.com">этом</a> сайте</p>
+    </div>
 
-<a href="index.html" class="button-link">На Главную</a>
+    <a href="index.html" class="button-link">На Главную</a>
 
-<hr>
-<p align="center">
-    <input type="text" id="author" placeholder="Автор">
-    <input type="text" id="body" placeholder="Текст комментария">
-    <button id="button" class="button-link">Отправить</button>
-</p>
-<hr>
+    <hr>
 
-<div id="comments"></div>
+    <p align="center">
+        <input type="text" id="author" placeholder="Автор">
+        <input type="text" id="body" placeholder="Текст комментария">
+        <button id="button" class="button-link">Отправить</button>
+    </p>
 
-<hr>
+    <hr>
 
-<div class="footer">
-    <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
-</div>
+    <div id="comments"></div>
 
-<script>
-    let author = document.getElementById("author");
-    let body = document.getElementById("body");
-    let commentsDiv = document.getElementById("comments");
-    let comments = localStorage.getItem("comments") || "";
-    commentsDiv.innerHTML = comments;
+    <hr>
 
-    function enter() {
-        comments += `
-        <div class="comments">
-            <h3>${author.value}</h3>
-            <p>${body.value}</p>
-        </div>
-        `;
+    <div class="footer">
+        <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
+    </div>
+
+    <script>
+        let author = document.getElementById("author");
+        let body = document.getElementById("body");
+        let commentsDiv = document.getElementById("comments");
+
+        let comments = localStorage.getItem("comments") || "";
         commentsDiv.innerHTML = comments;
-        author.value = "";
-        body.value = "";
-        localStorage.setItem("comments", comments);
-    }
 
-    document.getElementById("button").onclick = enter;
-</script>
+        function enter() {
+            comments += `
+<div class="comments">
+<h3>${author.value}</h3>
+<p>${body.value}</p>
+</div>
+`;
+            commentsDiv.innerHTML = comments;
+            author.value = "";
+            body.value = "";
+            localStorage.setItem("comments", comments);
+        }
+
+        document.getElementById("button").onclick = enter;
+    </script>
 </body>
+
 </html>
