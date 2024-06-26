@@ -233,7 +233,9 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            
                 const postsContainer = document.getElementById('posts');
+            
                 posts.forEach(post => {
                     const postElement = document.createElement('div');
             
@@ -246,8 +248,9 @@
             
                     postsContainer.appendChild(postElement);
                 });
-            });
+            
                 const emailLink = document.getElementById('email-link');
+            
                 emailLink.addEventListener('click', function(event) {
                     event.preventDefault();
                     alert('dimanargaz@icloud.com');
