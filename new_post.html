@@ -216,34 +216,71 @@
         </div>
         <div class="content">
             <h3>Новый Пост</h3>
-            <form id="postForm" enctype="multipart/form-data">
-                <label for="title">Название видео:</label>
-                <input type="text" id="title" name="title" required>
-                <label for="post">Описание:</label>
-                <textarea id="post" name="post" required></textarea>
-                <label for="file">Файл:</label>
-                <input type="file" id="file" name="file" required>
-                <button type="submit">Опубликовать</button>
+            <form id="postForm">
+                <label type="text" id="title" placeholder="Название" required></label>
+                <textarea id="post" placeholder="Описание" required></textarea>
+                <input type="file" id="video" accept="video/*">
+                <button type="submit">Submit</button>
             </form>
         </div>
         <script>
             document.getElementById('postForm').addEventListener('submit', function(event) {
                 event.preventDefault();
+            
                 const title = document.getElementById('title').value;
                 const post = document.getElementById('post').value;
-                const fileInput = document.getElementById('file');
-                const file = fileInput.files[0];
+                const videoInput = document.getElementById('video');
+                const videoFile = videoInput.files[0];
+            
                 const reader = new FileReader();
-                
+            
                 reader.onload = function(e) {
                     const fileData = e.target.result;
+            
                     const posts = JSON.parse(localStorage.getItem('posts')) || [];
-                    posts.push({ title, post, fileData, fileName: file.name });
+            
+                    posts.push({
+                        title: title,
+                        post: post,
+                        video: fileData
+                    });
+            
                     localStorage.setItem('posts', JSON.stringify(posts));
+            
                     window.location.href = 'index.html';
                 };
-                
-                reader.readAsDataURL(file);
+            
+                if (videoFile) {
+                    reader.readAsDataURL(videoFile);
+                } else {
+                    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            
+                    posts.push({
+                        title: title,
+                        post: post,
+                        video: null
+                    });
+            
+                    localStorage.setItem('posts', JSON.stringify(posts));
+            
+                    window.location.href = 'index.html';
+                }
+            });
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const posts = JSON.parse(localStorage.getItem('posts')) || [];
+                const postsContainer = document.getElementById('posts');
+            
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.innerHTML = `
+                        <hr>
+                        <h3>${post.title}</h3>
+                        <p>${post.post}</p>
+                        ${post.video ? `<video controls src="${post.video}" width="320" height="240"></video>` : ''}
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
             });
         </script>
     </body>
