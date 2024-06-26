@@ -239,8 +239,9 @@
                     postElement.innerHTML = `
                         <hr>
                         <h3>${post.title}</h3>
+                        ${post.fileData ? `<video><source src="${post.fileData}"></video>` : ''}
                         <p>${post.post}</p>
-                        ${post.fileData ? `<video><source src="${post.fileData}"> alt="${post.fileName}" style="max-width: 100%;"</video>` : ''}
+                        
                     `;
                     postsContainer.appendChild(postElement);
                 });
