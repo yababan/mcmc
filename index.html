@@ -245,16 +245,18 @@
                     <hr>
                     <h3>${post.title}</h3>
                     <p>${post.post}</p>
-                    <video controls src="${post.video}" width="320" height="240"></video>
+                    ${post.video ? `<video controls src="${post.video}" width="320" height="240"></video>` : ''}
                 `;
                 postsContainer.appendChild(postElement);
             });
-        });
 
-        const emailLink = document.getElementById('email-link');
-        emailLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            alert('dimanargaz@icloud.com');
+            const emailLink = document.getElementById('email-link');
+            if (emailLink) {
+                emailLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    alert('dimanargaz@icloud.com');
+                });
+            }
         });
     </script>
 </body>
