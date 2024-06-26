@@ -6,203 +6,121 @@
     <title>Новый Пост</title>
     <style>
         .header {
-
-background: linear-gradient(to bottom right, blue, pink);
-
-color: white;
-
-padding: 20px 0;
-
-text-align: center;
-
-background-size: 400% 400%;
-
-animation: headerGradientAnimation 15s ease infinite;
-
-margin: 0;
-
+    background: linear-gradient(to bottom right, blue, pink);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    background-size: 400% 400%;
+    animation: headerGradientAnimation 15s ease infinite;
+    margin: 0;
 }
 
 @keyframes headerGradientAnimation {
-
-0% { background-position: 0% 50%; }
-
-50% { background-position: 100% 50%; }
-
-100% { background-position: 0% 50%; }
-
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 body {
-
-font-family: 'Arial', sans-serif;
-
-margin: 0;
-
-background-color: #f0f0f0;
-
-color: #333;
-
-display: flex;
-
-flex-direction: column;
-
-align-items: center;
-
-justify-content: center;
-
-height: 100vh;
-
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .header {
-
-background-color: #4CAF50;
-
-color: white;
-
-padding: 20px 0;
-
-text-align: center;
-
-width: 100%;
-
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
 }
 
 .header h2 {
-
-margin: 0;
-
+    margin: 0;
 }
 
 hr {
-
-width: 80%;
-
-background-color: rgb(1, 90, 41);
-
-border: none;
-
-height: 2px;
-
-margin: 20px 0;
-
+    width: 80%;
+    background-color: rgb(1, 90, 41);
+    border: none;
+    height: 2px;
+    margin: 20px 0;
 }
 
 .content {
-
-width: 80%;
-
-max-width: 600px;
-
-display: flex;
-
-flex-direction: column;
-
-align-items: center;
-
-text-align: center;
-
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .content h3 {
-
-text-align: center;
-
+    text-align: center;
 }
 
 .content label {
-
-margin-top: 10px;
-
-text-align: left;
-
-width: 100%;
-
+    margin-top: 10px;
+    text-align: left;
+    width: 100%;
 }
 
 .content input[type="text"],
 
 .content textarea {
-
-width: 100%;
-
-padding: 10px;
-
-margin-top: 5px;
-
-background-color: rgb(157, 175, 155);
-
-border: none;
-
-border-radius: 5px;
-
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: rgb(157, 175, 155);
+    border: none;
+    border-radius: 5px;
 }
 
 .content textarea {
-
-height: 200px;
-
-resize: none;
-
+    height: 200px;
+    resize: none;
 }
 
 .content button {
-
-background-color: rgb(157, 175, 155);
-
-border: none;
-
-padding: 10px 20px;
-
-margin-top: 20px;
-
-cursor: pointer;
-
-border-radius: 5px;
-
+    background-color: rgb(157, 175, 155);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .content button:hover {
-
-background-color: rgb(137, 155, 135);
-
+    background-color: rgb(137, 155, 135);
 }
 
 .nav-button {
-
-margin-top: 20px;
-
-text-align: center;
-
+    margin-top: 20px;
+    text-align: center;
 }
 
 .nav-button a {
-
-text-decoration: none;
-
-color: black;
-
+    text-decoration: none;
+    color: black;
 }
 
 .nav-button button {
-
-background-color: rgb(157, 175, 155);
-
-border: none;
-
-padding: 10px 20px;
-
-cursor: pointer;
-
-border-radius: 5px;
-
+    background-color: rgb(157, 175, 155);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .nav-button button:hover {
-
-background-color: rgb(137, 155, 135);
-
+    background-color: rgb(137, 155, 135);
 }
     </style>
 </head>
@@ -228,22 +146,8 @@ background-color: rgb(137, 155, 135);
             const videoFile = document.getElementById('videoFile').files[0];
             formData.append('videoFile', videoFile);
 
-            fetch('/upload', {
-                method: 'POST',
-                body: formData
+
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Video uploaded successfully!');
-                } else {
-                    alert('Failed to upload video.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while uploading the video.');
-            });
         });
     </script>
 </body>
