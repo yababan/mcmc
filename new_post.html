@@ -216,55 +216,34 @@ background-color: rgb(137, 155, 135);
     </div>
     <div class="content">
         <h3>Новое Видео</h3>
-        <form id="postForm">
-            <input type="text" id="title" placeholder="Title">
-            <textarea id="post" placeholder="Post"></textarea>
-            <input type="file" id="video">
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="videoFile" name="videoFile" accept="video/*" required>
             <button type="submit">Опубликовать</button>
         </form>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const postForm = document.getElementById('postForm');
-            if (postForm) {
-                postForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData();
+            const videoFile = document.getElementById('videoFile').files[0];
+            formData.append('videoFile', videoFile);
 
-                    const title = document.getElementById('title').value;
-                    const post = document.getElementById('post').value;
-                    const videoInput = document.getElementById('video');
-                    const videoFile = videoInput.files[0];
-
-                    if (videoFile) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            const fileData = e.target.result;
-                            const posts = JSON.parse(localStorage.getItem('posts')) || [];
-
-                            posts.push({
-                                title: title,
-                                post: post,
-                                video: fileData
-                            });
-
-                            localStorage.setItem('posts', JSON.stringify(posts));
-                            window.location.href = 'index.html';
-                        };
-                        reader.readAsDataURL(videoFile);
-                    } else {
-                        const posts = JSON.parse(localStorage.getItem('posts')) || [];
-
-                        posts.push({
-                            title: title,
-                            post: post,
-                            video: null
-                        });
-
-                        localStorage.setItem('posts', JSON.stringify(posts));
-                        window.location.href = 'index.html';
-                    }
-                });
-            }
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Video uploaded successfully!');
+                } else {
+                    alert('Failed to upload video.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while uploading the video.');
+            });
         });
     </script>
 </body>
