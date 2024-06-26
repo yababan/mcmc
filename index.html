@@ -176,6 +176,9 @@
         bottom: 0;
         
         }
+        .video{
+            width: 50%;
+        }
         
         @media (min-width: 600px) {
         
@@ -245,7 +248,7 @@
                     <hr>
                     <h3>${post.title}</h3>
                     <p>${post.post}</p>
-                    <video controls src="${post.video}" width="320" height="240"></video>
+                    <video controls><source src=${post.video} type="video/mp4" class="video"></video>
                 `;
                 postsContainer.appendChild(postElement);
             });
