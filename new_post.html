@@ -227,7 +227,7 @@ width: 70%;
         <form id="uploadForm" enctype="multipart/form-data">
             <input type="text" id="title" name="title" placeholder="Название" required>
             <textarea id="body" placeholder="Описание"></textarea>
-            <input type="text" id="video" placeholder="Видео URL">
+            <input type="file" id="video">
             <button id="button">Опубликовать</button>
         </form>
     </div>
@@ -240,7 +240,6 @@ width: 70%;
           const body = document.getElementById('body').value;
           const video = document.getElementById('video').value;
         
-          // Check if video input is not empty
           if (!video) {
             alert('Please provide a video URL.');
             return;
