@@ -116,46 +116,58 @@
         <button><a href="index.html">Главная</a></button>
     </div>
     <div class="content">
-        <h3>Новый Пост</h3>
+        <h3>Новое Видео</h3>
         <form id="postForm">
-            <input type="text" id="title" placeholder="Название" required>
-            <textarea id="post" placeholder="Описание" required></textarea>
-            <input type="file" id="video" required>
-            <button type="submit">Submit</button>
+            <input type="text" id="title" placeholder="Title">
+            <textarea id="post" placeholder="Post"></textarea>
+            <input type="file" id="video">
+            <button type="submit">Опубликовать</button>
         </form>
     </div>
     <script>
-        document.getElementById('postForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const title = document.getElementById('title').value;
-            const post = document.getElementById('post').value;
-            const videoInput = document.getElementById('video');
-            const videoFile = videoInput.files[0];
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const fileData = e.target.result;
-                const posts = JSON.parse(localStorage.getItem('posts')) || [];
-                posts.push({
-                    title: title,
-                    post: post,
-                    video: fileData
-                });
-                localStorage.setItem('posts', JSON.stringify(posts));
-                window.location.href = 'index.html';
-            };
-            if (videoFile) {
-                reader.readAsDataURL(videoFile);
-            } else {
-                const posts = JSON.parse(localStorage.getItem('posts')) || [];
-                posts.push({
-                    title: title,
-                    post: post,
-                    video: null
-                });
-                localStorage.setItem('posts', JSON.stringify(posts));
-                window.location.href = 'index.html';
-            }
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+        const postForm = document.getElementById('postForm');
+        if (postForm) {
+            postForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const title = document.getElementById('title').value;
+                const post = document.getElementById('post').value;
+                const videoInput = document.getElementById('video');
+                const videoFile = videoInput.files[0];
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const fileData = e.target.result;
+                    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+                    posts.push({
+                        title: title,
+                        post: post,
+                        video: fileData
+                    });
+
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                     window.location.href = 'index.html';
+                };
+
+                if (videoFile) {
+                    reader.readAsDataURL(videoFile);
+                } else {
+                    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+                      posts.push({
+                        title: title,
+                        post: post,
+                        video: null
+                    });
+                    
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+    });
     </script>
 </body>
 </html>
