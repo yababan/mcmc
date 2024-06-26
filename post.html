@@ -1,6 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Пост</title>
     <style>
         .divisor {
@@ -146,33 +149,28 @@
             color: #555;
         }
 
-        @media (min-width: 600px) {
-            .divisor {
-                flex-direction: row;
-            }
-
-            .container,
-            .containerv {
-                width: 80%;
-                padding: 15px;
-            }
-
+        @media (max-width: 600px) {
             .header h2 {
-                font-size: 2em;
+                font-size: 1.5em;
             }
 
             .header p {
                 font-size: 1em;
             }
 
+            .container,
+            .containerv {
+                width: 95%;
+                padding: 15px;
+            }
+
             .button-link {
-                width: 50%;
+                width: 100%;
                 padding: 10px;
             }
 
             input {
-                font-size: 10px;
-                padding: 10px;
+                width: 95%;
             }
         }
     </style>
@@ -215,17 +213,16 @@
         let author = document.getElementById("author");
         let body = document.getElementById("body");
         let commentsDiv = document.getElementById("comments");
-
         let comments = localStorage.getItem("comments") || "";
         commentsDiv.innerHTML = comments;
 
         function enter() {
             comments += `
-<div class="comments">
-<h3>${author.value}</h3>
-<p>${body.value}</p>
-</div>
-`;
+                <div class="comments">
+                    <h3>${author.value}</h3>
+                    <p>${body.value}</p>
+                </div>
+            `;
             commentsDiv.innerHTML = comments;
             author.value = "";
             body.value = "";
