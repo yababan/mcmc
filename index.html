@@ -240,8 +240,7 @@
                         <hr>
                         <h3>${post.title}</h3>
                         <p>${post.post}</p>
-                        ${post.fileData ? `<img src="${post.fileData}" alt="${post.fileName}" style="max-width: 100%;">` : ''}
-                        ${post.fileData ? `<audio controls src="${post.fileData}" alt="${post.fileName}" style="max-width: 160%;"></audio>` : ''}
+                        ${post.fileData ? `<video><source src="${post.fileData}"> alt="${post.fileName}" style="max-width: 100%;"</video>` : ''}
                     `;
                     postsContainer.appendChild(postElement);
                 });
@@ -251,6 +250,8 @@
                     alert('dimanargaz@icloud.com');
                 });
             });
+            
+
         </script>
     </body>
 </html>
