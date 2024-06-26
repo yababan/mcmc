@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
     <title>Главная</title>
     <style>        
         body {
@@ -243,7 +244,7 @@
 
             let posts = JSON.parse(localStorage.getItem('posts')) || [];
 
-            posts.forEach(post => {
+            posts.forEach(posts => {
                 const postElement = document.createElement('div');
                 postElement.innerHTML = `
                     <h3>${post.title}</h3>
