@@ -238,21 +238,19 @@
     </div>
 
     <script>
-        let title = document.getElementById("title");
-        let body = document.getElementById("body");
-        let button = document.getElementById("button"); 
-        let comments = document.getElementById("comments");
-        function enter() {
-            comments.innerHTML += `
-            <div>
-            <h3>${title.value}</h3>
-            <p>${body.value}</p>
-            </div>
-            `;
-            author.value = "";
-            body.value = "";
-        }
-        button.onclick = enter;
+         document.addEventListener('DOMContentLoaded', function() {
+         const postsContainer = document.getElementById('posts');
+         let posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p>${post.body}</p>
+                `;
+                postsContainer.appendChild(postElement);
+            });
+
             const emailLink = document.getElementById('email-link');
             if (emailLink) {
                 emailLink.addEventListener('click', function(event) {
@@ -261,6 +259,5 @@
                 });
             }
         });
-    </script>
 </body>
 </html>
