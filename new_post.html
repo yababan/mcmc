@@ -1,271 +1,161 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Новый Пост</title>
-        <style>
-            .header {
-        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый Пост</title>
+    <style>
+        .header {
             background: linear-gradient(to bottom right, blue, pink);
-            
             color: white;
-            
             padding: 20px 0;
-            
             text-align: center;
-            
             background-size: 400% 400%;
-            
             animation: headerGradientAnimation 15s ease infinite;
-            
             margin: 0;
-            
-            }
-            
-            @keyframes headerGradientAnimation {
-            
+        }
+        @keyframes headerGradientAnimation {
             0% { background-position: 0% 50%; }
-            
             50% { background-position: 100% 50%; }
-            
             100% { background-position: 0% 50%; }
-            
-            }
-            
-            body {
-            
+        }
+        body {
             font-family: 'Arial', sans-serif;
-            
             margin: 0;
-            
             background-color: #f0f0f0;
-            
             color: #333;
-            
             display: flex;
-            
             flex-direction: column;
-            
             align-items: center;
-            
             justify-content: center;
-            
             height: 100vh;
-            
-            }
-            
-            .header {
-            
+        }
+        .header {
             background-color: #4CAF50;
-            
             color: white;
-            
             padding: 20px 0;
-            
             text-align: center;
-            
             width: 100%;
-            
-            }
-            
-            .header h2 {
-            
+        }
+        .header h2 {
             margin: 0;
-            
-            }
-            
-            hr {
-            
+        }
+        hr {
             width: 80%;
-            
             background-color: rgb(1, 90, 41);
-            
             border: none;
-            
             height: 2px;
-            
             margin: 20px 0;
-            
-            }
-            
-            .content {
-            
+        }
+        .content {
             width: 80%;
-            
             max-width: 600px;
-            
             display: flex;
-            
             flex-direction: column;
-            
             align-items: center;
-            
             text-align: center;
-            
-            }
-            
-            .content h3 {
-            
+        }
+        .content h3 {
             text-align: center;
-            
-            }
-            
-            .content label {
-            
+        }
+        .content label {
             margin-top: 10px;
-            
             text-align: left;
-            
             width: 100%;
-            
-            }
-            
-            .content input[type="text"],
-            
-            .content textarea {
-            
+        }
+        .content input[type="text"],
+        .content textarea {
             width: 100%;
-            
             padding: 10px;
-            
             margin-top: 5px;
-            
             background-color: rgb(157, 175, 155);
-            
             border: none;
-            
             border-radius: 5px;
-            
-            }
-            
-            .content textarea {
-            
+        }
+        .content textarea {
             height: 200px;
-            
             resize: none;
-            
-            }
-            
-            .content button {
-            
+        }
+        .content button {
             background-color: rgb(157, 175, 155);
-            
             border: none;
-            
             padding: 10px 20px;
-            
             margin-top: 20px;
-            
             cursor: pointer;
-            
             border-radius: 5px;
-            
-            }
-            
-            .content button:hover {
-            
+        }
+        .content button:hover {
             background-color: rgb(137, 155, 135);
-            
-            }
-            
-            .nav-button {
-            
+        }
+        .nav-button {
             margin-top: 20px;
-            
             text-align: center;
-            
-            }
-            
-            .nav-button a {
-            
+        }
+        .nav-button a {
             text-decoration: none;
-            
             color: black;
-            
-            }
-            
-            .nav-button button {
-            
+        }
+        .nav-button button {
             background-color: rgb(157, 175, 155);
-            
             border: none;
-            
             padding: 10px 20px;
-            
             cursor: pointer;
-            
             border-radius: 5px;
-            
-            }
-            
-            .nav-button button:hover {
-            
+        }
+        .nav-button button:hover {
             background-color: rgb(137, 155, 135);
-            
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Minecraft.Minecraft</h2>
+        <p>Майнкрафт Форум</p>
+    </div>
+    <div class="nav-button">
+        <button><a href="index.html">Главная</a></button>
+    </div>
+    <div class="content">
+        <h3>Новый Пост</h3>
+        <form id="postForm">
+            <input type="text" id="title" placeholder="Название" required>
+            <textarea id="post" placeholder="Описание" required></textarea>
+            <input type="file" id="video" accept="video/*">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const post = document.getElementById('post').value;
+            const videoInput = document.getElementById('video');
+            const videoFile = videoInput.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const fileData = e.target.result;
+                const posts = JSON.parse(localStorage.getItem('posts')) || [];
+                posts.push({
+                    title: title,
+                    post: post,
+                    video: fileData
+                });
+                localStorage.setItem('posts', JSON.stringify(posts));
+                window.location.href = 'index.html';
+            };
+            if (videoFile) {
+                reader.readAsDataURL(videoFile);
+            } else {
+                const posts = JSON.parse(localStorage.getItem('posts')) || [];
+                posts.push({
+                    title: title,
+                    post: post,
+                    video: null
+                });
+                localStorage.setItem('posts', JSON.stringify(posts));
+                window.location.href = 'index.html';
             }
-        </style>
-    </head>
-    <body>
-        <div class="header">
-            <h2>Minecraft.Minecraft</h2>
-            <p>Майнкрафт Форум</p>
-        </div>
-        <div class="nav-button">
-            <button><a href="index.html">Главная</a></button>
-        </div>
-        <div class="content">
-            <h3>Новый Пост</h3>
-            <form id="postForm">
-                <input type="text" id="title" placeholder="Название" required></input>
-                <textarea id="post" placeholder="Описание" required></textarea>
-                <input type="file" id="video" accept="video/*">
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-        <script>
-            document.getElementById('postForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-            
-                const title = document.getElementById('title').value;
-                const post = document.getElementById('post').value;
-                const videoInput = document.getElementById('video');
-                const videoFile = videoInput.files[0];
-            
-                const reader = new FileReader();
-            
-                reader.onload = function(e) {
-                    const fileData = e.target.result;
-            
-                    const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            
-                    posts.push({
-                        title: title,
-                        post: post,
-                        video: fileData
-                    });
-            
-                    localStorage.setItem('posts', JSON.stringify(posts));
-            
-                    window.location.href = 'index.html';
-                };
-            
-                if (videoFile) {
-                    reader.readAsDataURL(videoFile);
-                } else {
-                    const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            
-                    posts.push({
-                        title: title,
-                        post: post,
-                        video: null
-                    });
-            
-                    localStorage.setItem('posts', JSON.stringify(posts));
-            
-                    window.location.href = 'index.html';
-                }
-            });
-        </script>
-    </body>
+        });
+    </script>
+</body>
 </html>
