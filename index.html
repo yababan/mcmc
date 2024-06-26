@@ -1,257 +1,255 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Главная</title>
-<style>
-body {
-
-font-family: 'Arial', sans-serif;
-
-margin: 0;
-
-background: white;
-
-color: #333;
-
-background-size: 400% 400%;
-
-animation: gradientAnimation 15s ease infinite;
-
-}
-
-.header {
-
-background: linear-gradient(to bottom right, blue, pink);
-
-color: white;
-
-padding: 20px 0;
-
-text-align: center;
-
-background-size: 400% 400%;
-
-animation: headerGradientAnimation 15s ease infinite;
-
-}
-
-@keyframes headerGradientAnimation {
-
-0% { background-position: 0% 50%; }
-
-50% { background-position: 100% 50%; }
-
-100% { background-position: 0% 50%; }
-
-}
-
-.header h2 {
-
-margin: 0;
-
-font-size: 2.5em;
-
-}
-
-.header p {
-
-font-size: 1.2em;
-
-}
-
-.divisor {
-
-display: flex;
-
-flex-direction: column;
-
-padding: 20px;
-
-}
-
-.menu {
-
-background-color: #fff;
-
-padding: 20px;
-
-border-radius: 8px;
-
-box-shadow: 0 2px 1000px rgba(0, 0, 0, 0.1);
-
-margin-bottom: 20px;
-
-}
-
-.menu h3 {
-
-margin-bottom: 20px;
-
-color: #4CAF50;
-
-}
-
-.menu ul {
-
-list-style: none;
-
-padding: 0;
-
-}
-
-.menu li {
-
-margin-bottom: 10px;
-
-}
-
-.menu a {
-
-text-decoration: none;
-
-color: #464646;
-
-padding: 8px 12px;
-
-border-radius: 4px;
-
-display: block;
-
-background-color: rgba(110, 110, 110, 0.253);
-
-transition: background-color 0.3s;
-
-}
-
-.content {
-
-background-color: white;
-
-padding: 20px;
-
-border-radius: 8px;
-
-box-shadow: 0 2px 1000px rgba(0, 0, 0, 0.1);
-
-}
-
-.content h3 {
-
-color: #4CAF50;
-
-}
-
-.content p {
-
-line-height: 1.6;
-
-}
-
-.content a {
-
-text-decoration: none;
-
-color: #3a74b5;
-
-padding: 8px 12px;
-
-border-radius: 4px;
-
-background-color: rgba(110, 110, 110, 0.253);
-
-}
-
-.footer {
-
-background-color: #333;
-
-color: white;
-
-padding: 10px 0;
-
-text-align: center;
-
-bottom: 0;
-
-}
-
-@media (min-width: 600px) {
-
-.divisor {
-
-flex-direction: row;
-
-}
-
-.menu {
-
-width: 20%;
-
-margin-right: 20px;
-
-margin-bottom: 0;
-
-}
-
-.content {
-
-width: 70%;
-
-}
-
-}
-</style>
-</head>
-<body>
-<div class="header">
-<h2>Minecraft.Minecraft</h2>
-<p>Майнкрафт Форум</p>
-</div>
-<div class="divisor">
-<div class="menu">
-<h3>Меню</h3>
-<ul>
-<li><a href="https://discord.gg/xEVsMbcqSY">Дискорд</a></li>
-<li><a href="#" id="email-link">Email</a></li>
-<li><a href="index.html">Выйти</a></li>
-<li><a href="new_post.html">Новая Пост</a></li>
-<li><a href="form.html">Вход</a></li>
-</ul>
-</div>
-<div class="content">
-<h3>Заголовок</h3>
-<p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
-<a href="post.html">Читать далее</a>
-<div id="posts"></div>
-</div>
-</div>
-<div class="footer">
-<h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
-    const postsContainer = document.getElementById('posts');
-    
-    posts.forEach(post => {
-        const postElement = document.createElement('div');
-        postElement.innerHTML = `
-            <hr>
-            <h3>${post.title}</h3>
-            <p>${post.post}</p>
-            ${post.fileData ? `<img src="${post.fileData}" alt="${post.fileName}" style="max-width: 100%;">` : ''}
-        `;
-        postsContainer.appendChild(postElement);
-    });
-
-    const emailLink = document.getElementById('email-link');
-    emailLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        alert('dimanargaz@icloud.com');
-    });
-});
-</script>
-</body>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Главная</title>
+        <style>
+        body {
+        
+        font-family: 'Arial', sans-serif;
+        
+        margin: 0;
+        
+        background: white;
+        
+        color: #333;
+        
+        background-size: 400% 400%;
+        
+        animation: gradientAnimation 15s ease infinite;
+        
+        }
+        
+        .header {
+        
+        background: linear-gradient(to bottom right, blue, pink);
+        
+        color: white;
+        
+        padding: 20px 0;
+        
+        text-align: center;
+        
+        background-size: 400% 400%;
+        
+        animation: headerGradientAnimation 15s ease infinite;
+        
+        }
+        
+        @keyframes headerGradientAnimation {
+        
+        0% { background-position: 0% 50%; }
+        
+        50% { background-position: 100% 50%; }
+        
+        100% { background-position: 0% 50%; }
+        
+        }
+        
+        .header h2 {
+        
+        margin: 0;
+        
+        font-size: 2.5em;
+        
+        }
+        
+        .header p {
+        
+        font-size: 1.2em;
+        
+        }
+        
+        .divisor {
+        
+        display: flex;
+        
+        flex-direction: column;
+        
+        padding: 20px;
+        
+        }
+        
+        .menu {
+        
+        background-color: #fff;
+        
+        padding: 20px;
+        
+        border-radius: 8px;
+        
+        box-shadow: 0 2px 1000px rgba(0, 0, 0, 0.1);
+        
+        margin-bottom: 20px;
+        
+        }
+        
+        .menu h3 {
+        
+        margin-bottom: 20px;
+        
+        color: #4CAF50;
+        
+        }
+        
+        .menu ul {
+        
+        list-style: none;
+        
+        padding: 0;
+        
+        }
+        
+        .menu li {
+        
+        margin-bottom: 10px;
+        
+        }
+        
+        .menu a {
+        
+        text-decoration: none;
+        
+        color: #464646;
+        
+        padding: 8px 12px;
+        
+        border-radius: 4px;
+        
+        display: block;
+        
+        background-color: rgba(110, 110, 110, 0.253);
+        
+        transition: background-color 0.3s;
+        
+        }
+        
+        .content {
+        
+        background-color: white;
+        
+        padding: 20px;
+        
+        border-radius: 8px;
+        
+        box-shadow: 0 2px 1000px rgba(0, 0, 0, 0.1);
+        
+        }
+        
+        .content h3 {
+        
+        color: #4CAF50;
+        
+        }
+        
+        .content p {
+        
+        line-height: 1.6;
+        
+        }
+        
+        .content a {
+        
+        text-decoration: none;
+        
+        color: #3a74b5;
+        
+        padding: 8px 12px;
+        
+        border-radius: 4px;
+        
+        background-color: rgba(110, 110, 110, 0.253);
+        
+        }
+        
+        .footer {
+        
+        background-color: #333;
+        
+        color: white;
+        
+        padding: 10px 0;
+        
+        text-align: center;
+        
+        bottom: 0;
+        
+        }
+        
+        @media (min-width: 600px) {
+        
+        .divisor {
+        
+        flex-direction: row;
+        
+        }
+        
+        .menu {
+        
+        width: 20%;
+        
+        margin-right: 20px;
+        
+        margin-bottom: 0;
+        
+        }
+        
+        .content {
+        
+        width: 70%;
+        
+        }
+        
+        }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+        <h2>Minecraft.Minecraft</h2>
+        <p>Майнкрафт Форум</p>
+        </div>
+        <div class="divisor">
+        <div class="menu">
+            <h3>Меню</h3>
+            <ul>
+                <li><a href="https://discord.gg/xEVsMbcqSY">Дискорд</a></li>
+                <li><a href="#" id="email-link">Email</a></li>
+                <li><a href="index.html">Выйти</a></li>
+                <li><a href="new_post.html">Новая Пост</a></li>
+                <li><a href="form.html">Вход</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3>Заголовок</h3>
+            <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
+            <a href="post.html">Читать далее</a>
+            <div id="posts"></div>
+        </div>
+        </div>
+        <div class="footer">
+            <h6>© 2024 Minecraft.Minecraft. Все права защищены.</h6>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const posts = JSON.parse(localStorage.getItem('posts')) || [];
+                const postsContainer = document.getElementById('posts');
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.innerHTML = `
+                        <hr>
+                        <h3>${post.title}</h3>
+                        <p>${post.post}</p>
+                        ${post.fileData ? `<img src="${post.fileData}" alt="${post.fileName}" style="max-width: 100%;">` : ''}
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
+                const emailLink = document.getElementById('email-link');
+                emailLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    alert('dimanargaz@icloud.com');
+                });
+            });
+        </script>
+    </body>
 </html>
