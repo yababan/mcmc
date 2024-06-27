@@ -25,6 +25,9 @@
             background-size: 400% 400%;
             animation: headerGradientAnimation 15s ease infinite;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         @keyframes headerGradientAnimation {
@@ -131,9 +134,10 @@
         }
 
         .nav-button {
-            text-align: center;
+            display: flex;
+            justify-content: center;
             margin: 20px 0;
-            width: 70%;
+            width: 100%;
         }
 
         .nav-button button {
@@ -146,9 +150,11 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .header .nav-button button{
+
+        .header .nav-button button {
             text-align: center;
         }
+
         .nav-button button:hover {
             background-color: #45a049;
         }
@@ -194,8 +200,6 @@
         </div>
     </div>
 
-    
-
     <div class="content">
         <h3>Новое Видео</h3>
         <form id="uploadForm" enctype="multipart/form-data">
@@ -213,8 +217,8 @@
             const title = document.getElementById('title').value;
             const body = document.getElementById('body').value;
             const imageFile = document.getElementById('img').files[0];
-
             const reader = new FileReader();
+
             reader.onload = function(e) {
                 const image = e.target.result;
                 let posts = JSON.parse(localStorage.getItem('posts')) || [];
@@ -222,6 +226,7 @@
                 localStorage.setItem('posts', JSON.stringify(posts));
                 window.location.href = 'index.html';
             };
+
             reader.readAsDataURL(imageFile);
         });
     </script>
