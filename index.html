@@ -206,6 +206,10 @@
     }
     
     }
+    .img{
+        border: color(srgb rgb(116, 178, 139) rgb(104, 145, 104) rgb(123, 123, 156));
+        border-radius: 4px;
+    }
     </style>
 </head>
 
@@ -231,7 +235,7 @@
             <h3>Заголовок</h3>
             <p>Найди для себя новые приключения, аксессуары и сувенирную продукцию на официальном сайте Minecraft. Купи и скачай игру здесь или узнай последние новости на сайте.</p>
             <a href="post.html">Читать далее</a>
-            <div id="posts"></div>
+            <div id="posts" class="post"></div>
         </div>
     </div>
 
@@ -249,7 +253,9 @@
                 postElement.innerHTML = `
                     <h3>${post.title}</h3>
                     <p>${post.body}</p>
-                    <img src="${post.image}" alt="${post.title}" style="max-width: 26%;">
+                    <div class="img">
+                        <img src="${post.image}" alt="${post.title}" style="max-width: 26%;">
+                    </div>
                 `;
                 postsContainer.appendChild(postElement);
             });
