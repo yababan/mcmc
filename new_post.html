@@ -234,24 +234,23 @@ width: 70%;
 
     <script>
         document.getElementById('uploadForm').addEventListener('submit', function(event) {
-          event.preventDefault();
-        
-          const title = document.getElementById('title').value;
-          const body = document.getElementById('body').value;
-          const image = document.getElementById('img').value;
-        
-          if (!video) {
-            alert('Please provide a video URL.');
-            return;
-          }
-        
-          let posts = JSON.parse(localStorage.getItem('posts')) || [];
-        
-          posts.push({ title, body, image });
-        
-          localStorage.setItem('posts', JSON.stringify(posts));
-        
-          window.location.href = 'index.html';
+            event.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const body = document.getElementById('body').value;
+            const imageFile = document.getElementById('img').files[0];
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const image = e.target.result;
+                let posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+                posts.push({ title, body, image });
+                localStorage.setItem('posts', JSON.stringify(posts));
+
+                window.location.href = 'index.html';
+            };
+            reader.readAsDataURL(imageFile);
         });
     </script>
 </body>
