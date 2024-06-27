@@ -227,7 +227,7 @@ width: 70%;
         <form id="uploadForm" enctype="multipart/form-data">
             <input type="text" id="title" name="title" placeholder="Название" required>
             <textarea id="body" placeholder="Описание"></textarea>
-            <input type="file" id="video">
+            <input type="file" id="img">
             <button id="button">Опубликовать</button>
         </form>
     </div>
@@ -238,7 +238,7 @@ width: 70%;
         
           const title = document.getElementById('title').value;
           const body = document.getElementById('body').value;
-          const video = document.getElementById('video').value;
+          const image = document.getElementById('img').value;
         
           if (!video) {
             alert('Please provide a video URL.');
@@ -247,7 +247,7 @@ width: 70%;
         
           let posts = JSON.parse(localStorage.getItem('posts')) || [];
         
-          posts.push({ title, body, video });
+          posts.push({ title, body, image });
         
           localStorage.setItem('posts', JSON.stringify(posts));
         
